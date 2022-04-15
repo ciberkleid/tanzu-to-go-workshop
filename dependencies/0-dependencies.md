@@ -25,7 +25,7 @@ Edit the file to provide the path and credentials for the docker registry you'll
 
 Execute the `download-dependencies` script in the base directory to get the correct dependencies for your system.
 
-**Important.** Before you execute the script, you will need to edit it. There will be a placeholder string marked "<your-github-token>". You will need to replace this string. You can generate your own Github API token, or use one provided by the instructor.
+**Important.** The script contains a temporary read-only GitHub API token. If you get an error regarding `VENDIR_GITHUB_API_TOKEN`, generate a new token with repo access and replace the value in the script.
 
 Mac/Linux:
 ```
@@ -37,24 +37,17 @@ Windows:
 .\download-dependencies.ps1
 ```
 
-In addition to Kubernetes software deployments, this script will retrieve CLI binaries and add them to the `bin` subdirectory. The downloaded binaries are:
+In addition to Kubernetes software deployments, this script will retrieve CLI binaries and add them to the `./bin` subdirectory on Mac/Linux or `$HOME\tce\bin` directory on Windows. The downloaded binaries are:
 * **kn** (Knative client)
 * **kp** (kpack client)
 * **kubectl** (Kubernetes client)
+* **tanzu** (Tanzu client)
 * **yq** (YAML proccessor)
 
-You will need to add the ```bin``` subdirectory to your PATH  to access these commands. Alternative, you can copy these CLIs into your existing path. For example, on Mac/Linux, you can run
+The scripts will automatically prepend the bin directories to your PATH.
 
-Mac/Linux:
-```
-sudo cp bin/* /usr/local/bin
-```
+The `set-env.sh` or `set-env.ps1` scripts can be used in other sessions or after system restart to point to the executables downloaded in the script. 
 
-For Windows users, the executables will be located in the $HOME\tce\bin and is appended to the current path for the terminal session after the `download-dependencies.ps1` script has been executed. The `set-env.ps1` script can be used in other sessions or after system restart to point to the executables downloaded in the script. The path can also be added to the system if you want to add them permanently.
-
-Windows:
-```
-./set-env.ps1
-```
+You can also add the path to the system if you want to add it permanently.
 
 [Back to Homepage](../README.md)

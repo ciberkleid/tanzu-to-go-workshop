@@ -1,4 +1,4 @@
-$ENV:VENDIR_GITHUB_API_TOKEN = "<your-github-token>"
+$ENV:VENDIR_GITHUB_API_TOKEN = "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"
 
 # Download installation files
 ytt -f setup/vendir.yml --data-values-file config.yaml | vendir sync --chdir setup -f-
@@ -17,4 +17,4 @@ copy setup\vendir\binaries\yq\yq*.exe $HOME\tce\bin\yq.exe
 copy setup\vendir\binaries\kubectl\kubectl.exe $HOME\tce\bin\
 
 # Add location for tools to path
-$ENV:PATH = "$ENV:PATH;$HOME\tce\bin;"
+$ENV:PATH = "$HOME\tce\bin;$ENV:PATH;"
